@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src/methods.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.methods.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src/methods.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="F405">
+               <span class="count sev-1">
+                  6
+               </span>
+               <strong>F405:</strong> 'Automaton' may be undefined, or defined from star imports: src.auto
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.methods.source.html#l5">
+                  <tt><i>5</i> <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l20">
+                  <tt><i>20</i> <span class="k">def</span> <span class="nf">delete_multi_letter_transitions</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l49">
+                  <tt><i>49</i> <span class="k">def</span> <span class="nf">epsilon_closure</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l66">
+                  <tt><i>66</i> <span class="k">def</span> <span class="nf">remove_epsilon_transitions</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">):</span>  <span class="c1"># строим эпсилон замыкание</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l134">
+                  <tt><i>134</i> <span class="k">def</span> <span class="nf">find_factor</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l198">
+                  <tt><i>198</i> <span class="k">def</span> <span class="nf">find_classes</span><span class="p">(</span><span class="n">K0</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="F403">
+               <span class="count sev-1">
+                  1
+               </span>
+               <strong>F403:</strong> 'from src.auto import *' used; unable to detect undefined names
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.methods.source.html#l1">
+                  <tt><i>1</i> <span class="kn">from</span> <span class="nn">src.auto</span> <span class="kn">import</span> <span class="o">*</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  9
+               </span>
+               <strong>E501:</strong> line too long (85 > 79 characters)
+               
+                  (and 6 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l33">
+                  <tt><i>33</i>                         <span class="n">new_delta</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_state</span><span class="p">,</span> <span class="n">end_state</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">symbol</span><span class="p">]}))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l37">
+                  <tt><i>37</i>                         <span class="n">new_delta</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_state</span><span class="p">,</span> <span class="n">new_state</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">symbol</span><span class="p">]}))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (84 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l41">
+                  <tt><i>41</i>                 <span class="n">new_delta</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_state</span><span class="p">,</span> <span class="n">end_state</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">transition_word</span><span class="p">]}))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (84 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l79">
+                  <tt><i>79</i>                 <span class="k">if</span> <span class="n">transition</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">eps_state</span> <span class="ow">and</span> <span class="n">epsilon</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">transition</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">]:</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (119 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l90">
+                  <tt><i>90</i>     <span class="n">A</span><span class="o">.</span><span class="n">Delta</span> <span class="o">=</span> <span class="p">[</span><span class="n">transition</span> <span class="k">for</span> <span class="n">transition</span> <span class="ow">in</span> <span class="n">new_delta</span> <span class="k">if</span> <span class="n">epsilon</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">transition</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">]]</span>  <span class="c1"># удаляем эпсилон переходы</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l118">
+                  <tt><i>118</i>         <span class="n">new_delta</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">dict_of_new_nodes</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">dict_of_new_nodes</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="n">trans_info</span><span class="p">))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (91 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l150">
+                  <tt><i>150</i>     <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="n">initial_state</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;is_final&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">Sigma</span><span class="p">}}}</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (102 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l169">
+                  <tt><i>169</i>                 <span class="n">table</span><span class="p">[</span><span class="n">l_frozenset</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;is_final&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">Sigma</span><span class="p">}}</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (106 > 79 characters):</p>
+               
+               <a href="src.methods.source.html#l182">
+                  <tt><i>182</i>             <span class="n">new_delta</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">table</span><span class="p">[</span><span class="n">fs</span><span class="p">][</span><span class="s2">&quot;number&quot;</span><span class="p">],</span> <span class="n">table</span><span class="p">[(</span><span class="n">table</span><span class="p">[</span><span class="n">fs</span><span class="p">])[</span><span class="n">symbol</span><span class="p">]][</span><span class="s2">&quot;number&quot;</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">symbol</span><span class="p">]}))</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E741">
+               <span class="count sev-2">
+                  4
+               </span>
+               <strong>E741:</strong> ambiguous variable name 'l'
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.methods.source.html#l134">
+                  <tt><i>134</i> <span class="k">def</span> <span class="nf">find_factor</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">Automaton</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l165">
+                  <tt><i>165</i>             <span class="n">l</span> <span class="o">=</span> <span class="n">find_factor</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l204">
+                  <tt><i>204</i>     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">Sigma</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="src.methods.source.html#l212">
+                  <tt><i>212</i>         <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">Sigma</span><span class="p">:</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
