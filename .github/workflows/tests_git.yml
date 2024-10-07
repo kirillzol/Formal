@@ -1,0 +1,75 @@
+name: Python CI
+
+on:
+  push:
+    branches: [development]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install flake8 flake8-html pytest-html
+
+    - name: Run tests
+      run: |
+        mkdir -p reports/coverage reports/flake8 reports/junit
+        python -m pytest --cov=src tests/ --cov-report term --junitxml=reports/junit/junit.xml --html=reports/junit/index.html
+        coverage report
+        coverage xml -o reports/coverage/coverage.xml
+        coverage html -d reports/coverage
+        flake8 src --exit-zero --format=html --htmldir reports/flake8 --statistics --tee --output-file reports/flake8/flake8stats.txt
+    - name: Upload reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: reports
+        path: reports
+  update-badges:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout gh-pages
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+    - name: Setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Download reports
+      uses: actions/download-artifact@v4
+      with:
+        name: reports
+        path: reports
+    - name: Create badges
+      run: |
+        pip install genbadge[all]
+        genbadge tests -o badges/tests.svg
+        genbadge coverage -o badges/coverage.svg
+        genbadge flake8 -o badges/flake8.svg
+    - name: Deploy badges
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: 'Update badges'
+        branch: gh-pages
+        file_pattern: 'badges/* reports/*'
+        skip_fetch: true
+        skip_checkout: true
+    - name: Checkout back
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref }}
